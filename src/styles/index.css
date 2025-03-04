@@ -1,3 +1,81 @@
-/* 
-    General Styles
-*/
+.scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 15px; /* Adds space between items */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar on Internet Explorer */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-content {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px; /* Adds space between items */
+    padding-left: 10px;
+}
+
+body {
+    background: radial-gradient(circle, rgba(20,20,30,1) 0%, rgba(10,10,20,1) 100%);
+    animation: laserEffect 10s infinite alternate;
+}
+
+@keyframes laserEffect {
+    0% {
+        background: radial-gradient(circle, rgba(30,30,50,1) 10%, rgba(10,10,20,1) 100%);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(50,50,80,1) 20%, rgba(10,10,20,1) 100%);
+    }
+}
+
+body {
+    background: radial-gradient(circle at center, rgba(30,30,50,1) 10%, rgba(5,5,15,1) 100%);
+    animation: laserEffect 6s infinite alternate ease-in-out;
+    position: relative;
+}
+
+/* Moving light streaks */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 150, 255, 0.2) 0px,
+        rgba(0, 150, 255, 0.2) 2px,
+        transparent 4px,
+        transparent 8px
+    );
+    opacity: 0.4;
+    animation: moveLines 8s linear infinite;
+    pointer-events: none;
+}
+
+/* Subtle pulsing effect */
+@keyframes laserEffect {
+    0% {
+        background: radial-gradient(circle at center, rgba(40,40,70,1) 20%, rgba(5,5,15,1) 100%);
+    }
+    100% {
+        background: radial-gradient(circle at center, rgba(50,50,100,1) 30%, rgba(5,5,15,1) 100%);
+    }
+}
+
+/* Moving light streaks animation */
+@keyframes moveLines {
+    0% {
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: 200px 200px;
+    }
+}
